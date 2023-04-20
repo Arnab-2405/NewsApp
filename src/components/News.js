@@ -16,7 +16,7 @@ export class News extends Component {
   }
   
   async componentDidMount(){
-    let url= `ttps://newsapi.org/v2/top-headlines?country=in&apiKey=2b21f840ae484ddbaf065ee469d944f7&pageSize=${this.props.pageSize}`
+    let url= `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&pageSize=${this.props.pageSize}`
     this.setState({loading : true})
     let unparsedData = await fetch(url);
     let data = await unparsedData.json();
@@ -32,7 +32,7 @@ export class News extends Component {
 
     const handlePrevClick= async ()=>
     {
-      let url= `https://newsapi.org/v2/top-headlines?country=in&apiKey=2b21f840ae484ddbaf065ee469d944f7&pageSize=${this.props.pageSize}&page=${this.state.page -1}`
+      let url= `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&pageSize=${this.props.pageSize}&page=${this.state.page -1}`
       this.setState({loading : true})
       let unparsedData = await fetch(url);
       let data = await unparsedData.json();
@@ -45,7 +45,7 @@ export class News extends Component {
     }
 
     const handleNextClick =async ()=>{
-      let url= `https://newsapi.org/v2/top-headlines?country=in&apiKey=2b21f840ae484ddbaf065ee469d944f7&pageSize=${this.props.pageSize}&page=${this.state.page +1}`
+      let url= `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&pageSize=${this.props.pageSize}&page=${this.state.page +1}`
       this.setState({loading : true})
       let unparsedData = await fetch(url);
       let data = await unparsedData.json();

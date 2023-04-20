@@ -4,8 +4,12 @@ import Spinner from "./Spinner";
 
 export class News extends Component {
 
-  constructor(){
-    super();
+  capitalizeText(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  constructor(props){
+    super(props);
 
     this.state={
       articles : [],
@@ -13,6 +17,8 @@ export class News extends Component {
       page :1,
       totalResults : 0
     }
+
+    document.title= `${this.capitalizeText(this.props.category)} Section`
   }
   
   async UpdateNews(){

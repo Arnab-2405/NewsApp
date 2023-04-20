@@ -5,7 +5,7 @@ export class NewsItem extends Component {
 
   
   render() {
-    let { title, description, imageUrl,url } = this.props;
+    let { title, description, imageUrl,url,author, date } = this.props;
     return (
       <>
         <div className="card" >
@@ -13,6 +13,7 @@ export class NewsItem extends Component {
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{description}</p>
+            <p className="card-text"><small className="text-danger ">By {!author?"Unkown":author} on {new Date(date).toGMTString()}</small></p>
             <a href={url} target="_blank" className="btn btn-primary" rel="noreferrer">Read More</a>
           </div>
         </div>

@@ -10,7 +10,7 @@ export default class App extends Component {
 
     const apiKey="2b21f840ae484ddbaf065ee469d944f7";
     const country="in";
-    const pageSize=1;
+    const pageSize=12;
 
     return (
       <>

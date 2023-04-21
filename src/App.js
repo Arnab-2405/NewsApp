@@ -17,8 +17,8 @@ export default class App extends Component {
   }
   render() {
 
-    // const apiKey="2b21f840ae484ddbaf065ee469d944f7";  
-    const apiKey="8df1277692ad40ceaf987875b946910e";
+    
+    const apiKey=process.env.REACT_APP_NEWSAPP_API_KEY;
     const country="in";
     const pageSize=6;
 

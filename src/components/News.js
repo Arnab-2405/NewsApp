@@ -50,12 +50,16 @@ const News = (props) => {
       let data = await unparsedData.json();
       setArticles(articles.concat(data.articles));
       setTotalResults(data.totalResults);
-    }, 500);
+    }, 700);
   };
+
+
 
   return (
     <>
-      <h1 className="text-center headlines">Top Headlines</h1>
+      <h1 className="text-center headlines">
+        Top Headlines in {capitalizeText(props.category)}
+      </h1>
 
       {loading && <Spinner />}
 

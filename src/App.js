@@ -8,7 +8,8 @@ import LoadingBar from "react-top-loading-bar";
 
 const App = () => {
   const [progress, setProgress] = useState(0);
-  const [country, setCountry] = useState("in");
+  const country = "in";
+
 
   const apiKey = process.env.REACT_APP_NEWSAPP_API_KEY;
 
@@ -17,7 +18,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar setCountry={setCountry} />
+        <Navbar/>
         <LoadingBar color="#f11946" progress={progress} height={3} />
         <Routes>
           <Route

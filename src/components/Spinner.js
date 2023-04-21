@@ -1,15 +1,19 @@
-import React from 'react'
-import Spin from './Spinner.gif'
+import React from "react";
+import "../Stylesheets/Spinner.css";
 
-const Spinner =()=>{
-  
-    return (
-      <>
-        <div className='text-center'>
-            <img src={Spin} alt="Loading Wheel" />
+const Spinner = () => {
+  return (
+    <>
+      <div className="text-center">
+        <div className="loadingio-spinner-ripple-dxti5aa7u46">
+          <div className="ldio-q2tmm94jf4">
+            <div></div>
+            <div></div>
+          </div>
         </div>
-      </>
-    )
-  }
+      </div>
+    </>
+  );
+};
 
-export default Spinner
+export default Spinner;

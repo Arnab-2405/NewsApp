@@ -11,19 +11,19 @@ const App =()=> {
 
 
   const [progress,setProgress]=useState(0);
-
-
-
-
-    
+  const [country ,setCountry] =useState("in");
+ 
+   
     const apiKey=process.env.REACT_APP_NEWSAPP_API_KEY;
-    const country="in";
+  
     const pageSize=6;
+
+
 
     return (
       <>
       <BrowserRouter>
-        <Navbar/>
+        <Navbar setCountry={setCountry} country={country}/>
         <LoadingBar
         color='#f11946'
         progress={progress}

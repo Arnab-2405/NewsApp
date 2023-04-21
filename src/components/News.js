@@ -3,7 +3,7 @@ import { useEffect,useState } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
-
+import '../Stylesheets/bodyColor.css'
 const News =(props)=> {
 
   const [articles, setArticles] = useState([])
@@ -23,6 +23,7 @@ const News =(props)=> {
   const UpdateNews= async ()=> {
     
     props.setProgress(10);
+    props.setProgress(30);
     const url= `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&pageSize=${props.pageSize}&page=${page}`
     
     setLoading(true)
@@ -64,11 +65,7 @@ const News =(props)=> {
 
     return (
       <>
-      <h1 className="text-center" 
-      style={{
-        marginTop:"10vh",
-        marginBottom:"5vh "
-      }}>
+      <h1 className="text-center headlines">
         
         Top Headlines</h1>
       
@@ -80,7 +77,7 @@ const News =(props)=> {
         hasMore={articles.length!==totalResults}
         loader={<Spinner/>}
 
-        
+        className="body-color"
         >
       <div className="container">
         <div className="row">

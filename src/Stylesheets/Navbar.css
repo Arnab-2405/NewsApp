@@ -1,29 +1,28 @@
-.text-size{
-    font-size: 5vh;
-    color: #C3073F;
+.text-size {
+  font-size: 5vh;
+  color: #c3073f;
 }
-.navbar{
-    margin-top: 1vh;
+.navbar {
+  padding-top: 1vh;
 }
-.navbar-color{
-    background-color: #1A1A1D;
-}
-
-.no-padding{
-    padding: 0px;
+.navbar-color {
+  background-color: #1a1a1d;
 }
 
-.bar-color{
-    font-size: 3.2vh;
-    color: #FFF;
+.no-padding {
+  padding: 0px;
 }
 
-.language{
-    width: fit-content;
-    color: #FFF;
-}
-.form-select{
-    color: #FFF;
-    background-color: #1A1A1D;
+.bar-color {
+  font-size: 3.2vh;
+  color: #fff;
 }
 
+.language {
+  width: fit-content;
+  color: #fff;
+}
+.form-select {
+  color: #fff;
+  background-color: #1a1a1d;
+}

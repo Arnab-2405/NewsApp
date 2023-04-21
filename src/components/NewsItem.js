@@ -37,7 +37,7 @@ const NewsItem = (props) => {
               By {!author ? "Unkown" : author} on {new Date(date).toGMTString()}
             </small>
           </p>
-          <div className="text-center">
+          <div className="text-center bkg">
             <a
               href={url}
               target="_blank"

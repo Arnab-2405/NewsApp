@@ -7,11 +7,6 @@ const Navbar = (props) => {
     url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@1,200&display=swap');
   </style>;
 
-  const handleLanguage= async (event)=>{
-    await props.setCountry(event.target.value)
-    console.log(props.country)
-  }
-
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top no-padding">
@@ -95,20 +90,6 @@ const Navbar = (props) => {
               </li>
             </ul>
           </div>
-          <div className="container language">
-          <h5>Region</h5>
-              <select className="form-select" aria-label="Default select example" onChange={handleLanguage}>
-                
-                <option defaultValue={"in"} >India</option>
-                <option value="us">America</option>
-                <option value="ru">Russia</option>
-                <option value="cn">China</option>
-                <option value="au">Australia</option>
-                <option value="az">Africa</option>
-                <option value="gb">England</option>
-
-              </select>
-            </div>
         </div>
       </nav>
     </>

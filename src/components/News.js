@@ -1,86 +1,90 @@
-import React, { Component } from "react";
+import React from "react";
+import { useEffect,useState } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-export class News extends Component {
+const News =(props)=> {
 
-  capitalizeText(string){
+  const [articles, setArticles] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [page, setPage] = useState(1)
+  const [totalResults, setTotalResults] = useState(0)
+
+  
+  
+  const capitalizeText=(string)=>{
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
-  constructor(props){
-    super(props);
-
-    this.state={
-      articles : [],
-      loading : true,
-      page :1,
-      totalResults : 0
-    }
-
-    document.title= `${this.capitalizeText(this.props.category)} Section`
-  }
   
-  async UpdateNews(){
-    this.props.setProgress(10);
-    const url= `ttps://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&pageSize=${this.props.pageSize}&page=${this.state.page}`
-    this.setState({loading : true})
+  
+  
+  
+  const UpdateNews= async ()=> {
+    
+    props.setProgress(10);
+    const url= `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&pageSize=${props.pageSize}&page=${page}`
+    
+    setLoading(true)
     let unparsedData = await fetch(url);
-    this.props.setProgress(50);
+    props.setProgress(50);
     let data = await unparsedData.json();
-    this.props.setProgress(80);
-    this.setState({
-      articles: data.articles,
-      totalResults : data.totalResults,
-      loading: false
-    })
-    this.props.setProgress(100);
+    props.setProgress(80);
+
+    setArticles(data.articles);
+    setTotalResults(data.totalResults)
+    setLoading(false)
+    
+    props.setProgress(100);
   }
   
+  useEffect(()=>{
+    document.title= `${capitalizeText(props.category)} Section`
+    UpdateNews();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
-  async componentDidMount(){
-    this.UpdateNews();
-  }
+  
 
 
 
-    fetchMoreData = async () => {
+    const fetchMoreData = async () => {
+      
       setTimeout(async ()=>{
-      this.setState({page : this.state.page + 1})
-      const url= `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&pageSize=${this.props.pageSize}&page=${this.state.page +1}`
+      const url= `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&pageSize=${props.pageSize}&page=${page +1}`
+      setPage(page+1);
       let unparsedData = await fetch(url);
       let data = await unparsedData.json();
-
-      this.setState({
-        articles: this.state.articles.concat(data.articles),
-        totalResults : data.totalResults,
-      })
+      setArticles(articles.concat(data.articles))
+      setTotalResults(data.totalResults)
     },500);
 
     };
 
 
-  render() {
-
-
     return (
       <>
-      <h1 className="text-center">Top Headlines</h1>
+      <h1 className="text-center" 
+      style={{
+        marginTop:"10vh",
+        marginBottom:"5vh "
+      }}>
+        
+        Top Headlines</h1>
       
-        {this.state.loading && <Spinner/>}
+        {loading && <Spinner/>}
 
         <InfiniteScroll
-        dataLength={this.state.articles.length}
-        next={this.fetchMoreData}
-        hasMore={this.state.articles.length!==this.state.totalResults}
+        dataLength={articles.length}
+        next={fetchMoreData}
+        hasMore={articles.length!==totalResults}
         loader={<Spinner/>}
 
         
         >
       <div className="container">
         <div className="row">
-          {this.state.articles.map((element)=>{
+          {articles.map((element)=>{
             return <div className="col-md-4" key={element.url}>
                       <NewsItem title={element.title} description={element.description} imageUrl={element.urlToImage} url={element.url} author={element.author} date={element.publishedAt} />
                     </div>
@@ -92,6 +96,6 @@ export class News extends Component {
       </>
     );
   }
-}
+
 
 export default News;

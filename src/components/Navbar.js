@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Stylesheets/Navbar.css";
-const Navbar = () => {
+const Navbar = (props) => {
   <style>
     @import
     url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@1,200&display=swap');
   </style>;
-
 
   return (
     <>

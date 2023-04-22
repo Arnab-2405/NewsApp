@@ -8,18 +8,18 @@ import LoadingBar from "react-top-loading-bar";
 
 const App = () => {
   const [progress, setProgress] = useState(0);
-  const country = "in";
+  const [country,setCountry]=useState("in");
 
 
   // const apiKey = process.env.REACT_APP_NEWSAPP_API_KEY;
-  const apiKey="11e44f3d500d479ab55be25ceea4fedf";
+  const apiKey="2b21f840ae484ddbaf065ee469d944f7";
 
   const pageSize = 6;
 
   return (
     <>
       <BrowserRouter>
-        <Navbar/>
+        <Navbar setCountry={setCountry} />
         <LoadingBar color="#f11946" progress={progress} height={3} />
         <Routes>
           <Route
@@ -27,7 +27,7 @@ const App = () => {
             element={
               <News
                 setProgress={setProgress}
-                key="general"
+                key={"general" || country}
                 pageSize={pageSize}
                 country={country}
                 category={"general"}
@@ -40,7 +40,7 @@ const App = () => {
             element={
               <News
                 setProgress={setProgress}
-                key="business"
+                key={"business" || country}
                 pageSize={pageSize}
                 country={country}
                 category={"business"}
@@ -53,7 +53,7 @@ const App = () => {
             element={
               <News
                 setProgress={setProgress}
-                key="entertainment"
+                key={"entertainment"|| country}
                 pageSize={pageSize}
                 country={country}
                 category={"entertainment"}
@@ -66,7 +66,7 @@ const App = () => {
             element={
               <News
                 setProgress={setProgress}
-                key="health"
+              key={"health"|| country}
                 pageSize={pageSize}
                 country={country}
                 category={"health"}
@@ -79,7 +79,7 @@ const App = () => {
             element={
               <News
                 setProgress={setProgress}
-                key="science"
+                key={"science"|| country}
                 pageSize={pageSize}
                 country={country}
                 category={"science"}
@@ -92,7 +92,7 @@ const App = () => {
             element={
               <News
                 setProgress={setProgress}
-                key="sports"
+                key={"sports"|| country}
                 pageSize={pageSize}
                 country={country}
                 category={"sports"}
@@ -105,7 +105,7 @@ const App = () => {
             element={
               <News
                 setProgress={setProgress}
-                key="technology"
+                key={"technology"|| country}
                 pageSize={pageSize}
                 country={country}
                 category={"technology"}

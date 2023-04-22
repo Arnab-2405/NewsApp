@@ -11,8 +11,8 @@ const App = () => {
   const [country,setCountry]=useState("in");
 
 
-  // const apiKey = process.env.REACT_APP_NEWSAPP_API_KEY;
-  const apiKey="2b21f840ae484ddbaf065ee469d944f7";
+  const apiKey = process.env.REACT_APP_NEWSAPP_API_KEY;
+  // const apiKey="2b21f840ae484ddbaf065ee469d944f7";
 
   const pageSize = 6;
 

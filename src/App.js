@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename={"/NewsApp"}>
         <Navbar setCountry={setCountry} />
         <LoadingBar color="#f11946" progress={progress} height={3} />
         <Routes>

@@ -1,0 +1,28 @@
+.text-size {
+  font-size: 5vh;
+  color: #c3073f;
+}
+.navbar {
+  padding-top: 1vh;
+}
+.navbar-color {
+  background-color: #1a1a1d;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.bar-color {
+  font-size: 3.2vh;
+  color: #fff;
+}
+
+.language {
+  width: fit-content;
+  color: #fff;
+}
+.form-select {
+  color: #fff;
+  background-color: #1a1a1d;
+}
